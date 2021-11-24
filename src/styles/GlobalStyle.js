@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
+    background-color: var(--green);
+    color: var(--bg);
   }
 
   :focus {
@@ -32,17 +32,18 @@ const GlobalStyle = createGlobalStyle`
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--lightgrey) var(--bg);
   }
   body::-webkit-scrollbar {
     width: 12px;
   }
   body::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--bg);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    padding: 0 100px 0 0;
+    background-color: var(--darkgrey);
+    border: 3px solid var(--bg);
     border-radius: 10px;
   }
 
@@ -53,13 +54,13 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
-    color: var(--slate);
+    background-color: var(--bg);
+    color: var(--lightgrey);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
 
-    @media (max-width: 480px) {
+    @media (max-width: 900px) {
       font-size: var(--fz-lg);
     }
 
@@ -144,7 +145,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--white);
     line-height: 1.1;
   }
 
@@ -164,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     margin: 10px 0 40px;
     width: 100%;
-    font-size: clamp(26px, 5vw, var(--fz-heading));
+    font-size: clamp(30px, 5vw, 60px);
     white-space: nowrap;
 
     &:before {
@@ -174,9 +175,9 @@ const GlobalStyle = createGlobalStyle`
       content: '0' counter(section) '.';
       margin-right: 10px;
       color: var(--green);
-      font-family: var(--font-mono);
-      font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
-      font-weight: 400;
+      font-family: var(--font-sans);
+      font-size: clamp(30px, 5vw, 60px);
+      font-weight: 600;
 
       @media (max-width: 480px) {
         margin-bottom: -3px;
@@ -189,10 +190,10 @@ const GlobalStyle = createGlobalStyle`
       display: block;
       position: relative;
       top: -5px;
-      width: 300px;
+      width: 1000px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--green);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -282,8 +283,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
-      color: var(--white);
+      background-color: var(--lightgrey);
+      color: var(--lightgrey);
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
@@ -325,7 +326,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--lightgrey);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -352,7 +353,7 @@ const GlobalStyle = createGlobalStyle`
     &:focus,
     &:active {
       background-color: var(--green);
-      color: var(--navy);
+      color: var(--lightgrey);
       top: 0;
       left: 0;
       width: auto;

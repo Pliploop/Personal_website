@@ -7,6 +7,6 @@ tech:
   - Vue
   - Firebase
 showInProjects: true
+image: './img.png'
 ---
 
-A simple Google Keep clone built with Vue and Firebase.

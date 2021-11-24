@@ -91,10 +91,10 @@ const mixins = {
     color: var(--green);
     background-color: transparent;
     border: 1px solid var(--green);
-    border-radius: var(--border-radius);
-    padding: 0.75rem 1rem;
-    font-size: var(--fz-xs);
-    font-family: var(--font-mono);
+    border-radius: 10px;
+    padding: 0.6rem 1rem 0.5rem;
+    font-size: var(--fz-md);
+    font-family: var(--font-sans);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -102,7 +102,8 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: var(--green);
+      color: #FFFFFF;
       outline: none;
     }
     &:after {
@@ -113,11 +114,11 @@ const mixins = {
   bigButton: css`
     color: var(--green);
     background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: var(--border-radius);
-    padding: 1.25rem 1.75rem;
-    font-size: var(--fz-sm);
-    font-family: var(--font-mono);
+    border: 2px solid var(--green);
+    border-radius: 15px;
+    padding: 1.1rem 1.6rem;
+    font-size: var(--fz-md);
+    font-family: var(--font-sans);
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -125,7 +126,8 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      background-color: var(--green);
+      color: #FFFFFF;
       outline: none;
     }
     &:after {
@@ -134,12 +136,22 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: 0 10px 30px -15px #000000;
     transition: var(--transition);
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: 0 20px 30px -15px #000000;
+    }
+  `,
+
+  dropShadow: css`
+    box-shadow: 0px 2px 2px 1px #000000;
+    transition: var(--transition);
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 2px 4px 0px #000000;
     }
   `,
 
@@ -153,7 +165,7 @@ const mixins = {
       padding-left: 30px;
       margin-bottom: 10px;
       &:before {
-        content: '▹';
+        content: '•';
         position: absolute;
         left: 0;
         color: var(--green);

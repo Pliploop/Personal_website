@@ -4,6 +4,7 @@ import {
   IconAppStore,
   IconBookmark,
   IconCodepen,
+  IconEmail,
   IconExternal,
   IconFolder,
   IconFork,
@@ -47,6 +48,8 @@ const Icon = ({ name }) => {
       return <IconStar />;
     case 'Twitter':
       return <IconTwitter />;
+    case 'Email':
+      return <IconBookmark />;
     default:
       return <IconExternal />;
   }

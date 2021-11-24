@@ -117,14 +117,15 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: transparent;
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
   }
 
+
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--lightgrey);
     font-size: clamp(24px, 5vw, 28px);
 
     @media (min-width: 768px) {
@@ -157,8 +158,8 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--verydarkgrey);
+    color: var(--white);
     font-size: var(--fz-lg);
 
     @media (max-width: 768px) {
@@ -186,16 +187,28 @@ const StyledProject = styled.li`
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-    margin: 25px 0 10px;
+    margin: 20px 0 10px;
     padding: 0;
     list-style: none;
 
     li {
-      margin: 0 20px 5px 0;
-      color: var(--light-slate);
-      font-family: var(--font-mono);
+      margin: 0px 20px 0 0;
+      color: var(--green);
+      font-family: var(--font-sans);
+      font-weight: bold;
       font-size: var(--fz-xs);
+      outline: 1px solid var(--green);
+      padding: 7px 10px 5px 10px;
+      border-radius: 10px;
+      text-align: center;
       white-space: nowrap;
+      &:hover,
+      &:focus {
+        background: var(--green);
+        color: #FFFFFF;
+        transition: var(--transition)
+      }
+      
     }
 
     @media (max-width: 768px) {
@@ -203,7 +216,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--lightgrey);
       }
     }
   }
@@ -214,7 +227,7 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
+    color: var(--lightgrey);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -256,7 +269,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: transparent;
       border-radius: var(--border-radius);
       vertical-align: middle;
 
@@ -283,7 +296,7 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
+        background-color: transparent;
         mix-blend-mode: screen;
       }
     }
@@ -291,7 +304,8 @@ const StyledProject = styled.li`
     .img {
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
+      filter: grayscale(100%) contrast(1) brightness(80%);
+      transition: var(--transition);
 
       @media (max-width: 768px) {
         object-fit: cover;
@@ -322,7 +336,6 @@ const Featured = () => {
               tech
               github
               external
-              cta
             }
             html
           }
@@ -348,7 +361,7 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Featured projects
       </h2>
 
       <StyledProjectsGrid>
@@ -362,7 +375,6 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
 
                     <h3 className="project-title">
                       <a href={external}>{title}</a>

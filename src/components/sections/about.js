@@ -6,7 +6,7 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
-  max-width: 900px;
+  max-width: 1000px;
 
   .inner {
     display: grid;
@@ -17,6 +17,7 @@ const StyledAboutSection = styled.section`
       display: block;
     }
   }
+
 `;
 const StyledText = styled.div`
   ul.skills-list {
@@ -45,6 +46,11 @@ const StyledText = styled.div`
       }
     }
   }
+
+  
+  p {
+    font-size: 17px
+  }
 `;
 const StyledPic = styled.div`
   position: relative;
@@ -59,9 +65,10 @@ const StyledPic = styled.div`
     ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
-    width: 100%;
-    border-radius: var(--border-radius);
-    background-color: var(--green);
+    width: 140%;
+    border-radius: 500px;
+    background-color: transparent;
+    
 
     &:hover,
     &:focus {
@@ -69,22 +76,24 @@ const StyledPic = styled.div`
       outline: 0;
 
       &:after {
-        top: 15px;
-        left: 15px;
+        top: 80px;
+        left: 90px;
       }
 
       .img {
         filter: none;
         mix-blend-mode: normal;
+        z-index: 0;
       }
     }
 
     .img {
       position: relative;
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
+      border-radius: 200px;
+      mix-blend-mode: normal;
       filter: grayscale(100%) contrast(1);
       transition: var(--transition);
+      z-index:0;
     }
 
     &:before,
@@ -92,24 +101,26 @@ const StyledPic = styled.div`
       content: '';
       display: block;
       position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
+      width: 85%;
+      height: 85%;
+      border-radius: 200px;
       transition: var(--transition);
+      z-index:0;
     }
 
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
+      background-color: transparent;
       mix-blend-mode: screen;
+      z-index:-1;
     }
 
     &:after {
-      border: 2px solid var(--green);
-      top: 20px;
-      left: 20px;
-      z-index: -1;
+      border: 4px solid var(--green);
+      top: 70px;
+      left: 80px;
+      z-index:-1;
     }
   }
 `;
@@ -130,39 +141,29 @@ const About = () => {
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <h2 className="numbered-heading">Me, myself and I</h2>
 
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! I’m Julien, a music afficionado with a vivid interest for machine learning.
+              I’ve always loved music, as a 10-year self-taught guitar, piano, bass player and
+              producer. The promise musical applications hold in the fields of data science,
+              analysis and machine learning make me excited about the future of music!
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              Up till now, I’ve been pursuing studies in engineering, with a focus on musical
+              acoustics and data science in <a href="https://www.ec-lyon.fr/">France</a>{' '} and <a href="https://www.adelaide.edu.au/">Australia</a>{' '}. My discovery of data science
+              and my problem-solving mindset have led me to pursue independent and 
+              university courses in the domains of machine learning and deep learning. 
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              My personal projects and interships at <a href="https://www.data-newroad.com/">Data New Road</a>{' '} and <a href="https://www.artefact.com/">Artefact</a>{' '} have given me
+              the opportunity to work with the following technologies:    
             </p>
-
-            <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
@@ -174,7 +175,7 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="../../images/me.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}

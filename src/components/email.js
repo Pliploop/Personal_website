@@ -16,7 +16,7 @@ const StyledLinkWrapper = styled.div`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--light-slate);
+    background-color: var(--darkgrey);
   }
 
   a {
@@ -36,11 +36,7 @@ const StyledLinkWrapper = styled.div`
 `;
 
 const Email = ({ isHome }) => (
-  <Side isHome={isHome} orientation="right">
-    <StyledLinkWrapper>
-      <a href={`mailto:${email}`}>{email}</a>
-    </StyledLinkWrapper>
-  </Side>
+  <p>''</p>
 );
 
 Email.propTypes = {
