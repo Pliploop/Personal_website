@@ -44,28 +44,113 @@ const Loader = ({ finishLoading }) => {
       complete: () => finishLoading(),
     });
 
+      
+
     loader
       .add({
-        targets: '#logo path',
-        delay: 300,
-        duration: 1500,
+        targets: '#logo #circle',
+        delay: 100,
+        duration: 400,
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
-        targets: '#logo #B',
-        duration: 700,
+        targets: '#logo #play',
+        delay: 0,
+        duration: 500,
         easing: 'easeInOutQuart',
-        opacity: 1,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        fill :'#FFFFFF'
+      }, '-=400')
+      .add({
+        targets: '#logo #leftplay',
+        delay: 100,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        opacity: 1
       })
       .add({
+        targets: '#logo #rightplay',
+        delay: 100,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        opacity: 1
+      })
+      .add({
+        targets: '#logo #play',
+        delay: 200,
+        duration: 200,
+        easing: 'easeInOutQuart',
+        scale:0.6
+      })
+      .add({
+        targets: '#logo #rightplay',
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        scale:0.6
+      }, '-=100')
+      .add({
+        targets: '#logo #leftplay',
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        scale:0.6
+      }, '-=100')
+      .add({
+        targets: '#logo #play',
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        opacity: 0
+      }, '-=100')
+
+      .add({
+        targets: '#logo #leftplay',
+        points: [
+          { value: "   29.54 23.53 29.54 62.95  40.83 62.97  40.88 23.53 29.54 23.53 " }
+        ],
+        easing: 'easeOutQuad',
+        delay: 0,
+        scale: 1,
+        duration: 100,
+        stroke: "#161616",
+        fill : "#161616"
+      })
+      .add({
+        targets: '#logo #rightplay',
+        points: [
+          { value: "50.12 23.53 61.46 23.53 61.4 62.97 50.12 62.95 50.12 23.53" }
+        ],
+        easing: 'easeOutQuad',
+        delay: 0,
+        scale: 1,
+        duration: 100,
+        
+        stroke: "#161616",
+        fill : "#161616"
+      }, '-=100')
+
+      .add({
+        targets: '#logo #circle',
+        
+        easing: 'easeOutQuad',
+        delay: 0,
+        duration: 100,
+        
+        stroke: "#FFFFFF",
+        fill : "#FFFFFF"
+      }, '-=100')
+      
+
+      .add({
         targets: '#logo',
-        delay: 500,
+        delay: 300,
         duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,
         scale: 0.1,
-      })
+      },'-=100')
       .add({
         targets: '.loader',
         duration: 200,
