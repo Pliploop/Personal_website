@@ -4,16 +4,9 @@ const IconLoader = () => (
   <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="-5 0 100 100">
     <title>Loader Logo</title>
 
-    <g id="Layer_2" data-name="Layer 2">
-      <g id="Layer_1-2" data-name="Layer 1">
-        <circle class="cls-1" cx="45.5" cy="45.5" r="44.5" />
-        
-      </g>
-    </g>
-
     <g>
       <g transform="translate(0.000000, 5.000000)">
-        <circle id="circle" cx="45.5" cy="45.5" r="44.5" stroke="#FFFFFF" strokeWidth="3" />
+        <circle id="circle" cx="45.5" cy="45.5" r="44.5" stroke="#FFFFFF" strokeWidth="3" transform-origin='center'/>
         <polygon
           id="leftplay"
           stroke="#FFFFFF"

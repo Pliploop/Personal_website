@@ -16,6 +16,7 @@ import {
   IconPlayStore,
   IconStar,
   IconTwitter,
+  LoadBar,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -50,6 +51,8 @@ const Icon = ({ name }) => {
       return <IconTwitter />;
     case 'Email':
       return <IconBookmark />;
+    case 'Bar':
+      return <LoadBar/>
     default:
       return <IconExternal />;
   }
