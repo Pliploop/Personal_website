@@ -5,7 +5,7 @@ company: 'Data New Road'
 location: 'Lyon, France'
 range: 'OPctober - March 2020'
 url: 'https://www.data-newroad.com/'
-skills: ['Python','Keras','SQL/NoSQL','Jira']
+skills: ['Python','Keras','SQL/NoSQL','Jira/Jenkins']
 ---
 
 - Bullet 1

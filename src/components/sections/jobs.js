@@ -6,6 +6,63 @@ import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import {
+  IconFolder,
+  Python,
+  TensorFlow,
+  Git,
+  Azure,
+  Keras,
+  SQLNoSQL,
+  JiraJenkins,
+  Pytorch,
+  SignalProc,
+  Notebook,
+  AppliedPhysics,
+  Matlab,
+  Acoustics,
+  Research,
+  Stats,
+} from '../icons';
+
+function get_icon(string) {
+  switch (string) {
+    case 'Python':
+      return <Python />;
+    case 'TensorFlow':
+      return <TensorFlow />;
+    case 'Git':
+      return <Git />;
+    case 'Azure Cloud':
+      return <Azure />;
+    case 'Keras':
+      return <Keras />;
+    case 'SQL/NoSQL':
+      return <SQLNoSQL />;
+    case 'Jira/Jenkins':
+      return <JiraJenkins />;
+    case 'Signal Processing':
+      return <SignalProc />;
+    case 'Notebook':
+      return <Notebook />;
+
+    case 'Applied physics':
+      return <AppliedPhysics />;
+    case 'Matlab':
+      return <Matlab />;
+    case 'Acoustics':
+      return <Acoustics />;
+    case 'Research':
+      return <Research />;
+    case 'Statistics':
+      return <Stats />;
+
+    case 'Pytorch':
+      return <Pytorch />;
+    default:
+      return <IconFolder />;
+  }
+}
 
 const StyledJobsSection = styled.section`
   max-width: 1000px;
@@ -74,7 +131,7 @@ const StyledTabButton = styled.button`
   height: var(--tab-height);
   padding: 3px 20px 2px;
   border-left: 1px solid var(--green);
-  border-radius : 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
   background-color: transparent;
   color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--lightgrey)')};
   font-family: var(--font-sans);
@@ -110,7 +167,7 @@ const StyledHighlight = styled.div`
   border-radius: var(--border-radius);
   background: var(--green);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
-  transition: transform 0.20s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.05s;
 
   @media (max-width: 600px) {
@@ -142,26 +199,89 @@ const StyledTabPanel = styled.div`
   height: auto;
   padding: 10px 5px 0 50px;
 
-  ul {
-    ${({ theme }) => theme.mixins.fancyList};
-  }
+  .container-j {
+    display: flex;
 
-  h3 {
-    margin-bottom: 2px;
-    font-size: var(--fz-xxl);
-    font-weight: 500;
-    line-height: 1.3;
+    .job {
+      width: 65%;
 
-    .company {
-      color: var(--green);
+      ul {
+        ${({ theme }) => theme.mixins.fancyList};
+      }
+
+      h3 {
+        margin-bottom: 2px;
+        font-size: var(--fz-xxl);
+        font-weight: 500;
+        line-height: 1.3;
+
+        .company {
+          color: var(--green);
+        }
+      }
+
+      .range {
+        margin-bottom: 25px;
+        color: var(--green);
+        font-family: var(--font-sans);
+        font-size: var(--fz-xs);
+      }
     }
-  }
 
-  .range {
-    margin-bottom: 25px;
-    color: var(--green);
-    font-family: var(--font-sans);
-    font-size: var(--fz-xs);
+    .StyledSkillPanels {
+      position: relative;
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 0 10px 0 10px;
+      margin-left: 40px;
+      align-items: center;
+      gap: 25px;
+
+      @media (max-width: 600px) {
+        margin-left: 0;
+      }
+
+      .panel {
+        width: 100%;
+        height: 14%;
+        display: flex;
+        display-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        .icon-container {
+          position: relative;
+          width: 45px;
+          height: 45px;
+          border-radius: 8px;
+          transition: var(--transition);
+
+          svg {
+            display: flex;
+            margin: auto;
+            margin-top: 8px;
+            width: 70%;
+            height: 70%;
+            user-select: none;
+          }
+
+          &:hover svg {
+            fill: var(--green);
+          }
+
+        }
+
+        .skill-name {
+          position: relative;
+          align-items: center;
+          font-size: var(--fz-md);
+          margin: 0 0 0 20px;
+          width: 70%;
+        }
+      }
+    }
   }
 `;
 
@@ -180,6 +300,7 @@ const Jobs = () => {
               location
               range
               url
+              skills
             }
             html
           }
@@ -274,7 +395,7 @@ const Jobs = () => {
           {jobsData &&
             jobsData.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+              const { title, url, company, range, skills } = frontmatter;
 
               return (
                 <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -285,19 +406,42 @@ const Jobs = () => {
                     aria-labelledby={`tab-${i}`}
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
-                    <h3>
-                      <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
-                          {company}
-                        </a>
-                      </span>
-                    </h3>
+                    <div className="container-j">
+                      <div className="job">
+                        <h3>
+                          <span>{title}</span>
+                          <span className="company">
+                            &nbsp;@&nbsp;
+                            <a href={url} className="inline-link">
+                              {company}
+                            </a>
+                          </span>
+                        </h3>
 
-                    <p className="range">{range}</p>
+                        <p className="range">{range}</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                        <div dangerouslySetInnerHTML={{ __html: html }} />
+                      </div>
+
+                      <div className="StyledSkillPanels">
+                        <div className="panel">
+                          <div className="icon-container">{get_icon(skills[0])}</div>
+                          <div className="skill-name">{skills[0]}</div>
+                        </div>
+                        <div className="panel">
+                          <div className="icon-container">{get_icon(skills[1])}</div>
+                          <div className="skill-name">{skills[1]}</div>
+                        </div>
+                        <div className="panel">
+                          <div className="icon-container">{get_icon(skills[2])}</div>
+                          <div className="skill-name">{skills[2]}</div>
+                        </div>
+                        <div className="panel">
+                          <div className="icon-container">{get_icon(skills[3])}</div>
+                          <div className="skill-name">{skills[3]}</div>
+                        </div>
+                      </div>
+                    </div>
                   </StyledTabPanel>
                 </CSSTransition>
               );

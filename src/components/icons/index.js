@@ -17,3 +17,21 @@ export { default as LoadBar } from './loadbar';
 export { default as Heart } from './Heart';
 export { default as SkipRight } from './skipright';
 export { default as SkipLeft } from './skipleft';
+
+
+
+export { Python as Python } from './skills';
+export { TensorFlow as TensorFlow } from './skills';
+export { Git as Git } from './skills';
+export { Azure as Azure } from './skills';
+export { Keras as Keras } from './skills';
+export { SQLNoSQL as SQLNoSQL } from './skills';
+export { JiraJenkins as JiraJenkins } from './skills';
+export { SignalProc as SignalProc } from './skills';
+export { Notebook as Notebook } from './skills';
+export { Pytorch as Pytorch } from './skills';
+export { AppliedPhysics as AppliedPhysics } from './skills';
+export { Matlab as Matlab } from './skills';
+export { Acoustics as Acoustics } from './skills';
+export { Research as Research } from './skills';
+export { Stats as Stats } from './skills';

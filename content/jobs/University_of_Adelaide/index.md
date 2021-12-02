@@ -5,7 +5,7 @@ company: 'University of Adelaide'
 location: 'Adelaide, Australia'
 range: 'July 2021 - Present'
 url: 'https://web.northeastern.edu/scout/'
-skills: ['Pytorch','Git','Acoustics','Python']
+skills: ['Pytorch','Git','Signal Processing','Notebook']
 ---
 
 - Bullet

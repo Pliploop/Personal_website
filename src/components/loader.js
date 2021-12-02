@@ -5,10 +5,17 @@ import anime from 'animejs';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/icons';
+import { check } from 'prettier';
 
 const musictime = Math.floor(Math.random()*(180 - 240) + 180);
 const minutes = Math.floor(musictime/60);
 const seconds = ("0" + musictime%60).slice(-2);
+const maxreplies = 5;
+
+var Liked = [];   
+  for (var i = 0; i < maxreplies; i++) {
+    Liked.push(false);
+  }
 
 var replyindex = 1;
 
@@ -196,8 +203,10 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = ({ finishLoading }) => {
+  
   const [isMounted, setIsMounted] = useState(false);
   const [isLiked, setisLiked] = useState(false);
+  
 
   const data = useStaticQuery(graphql`
     {
@@ -215,8 +224,13 @@ const Loader = ({ finishLoading }) => {
       }
     }
   `).featured.edges[0].node.frontmatter.tech;
-  const maxreplies = data.length;
   const minreply = 0;
+
+  
+
+
+
+    
   
 
   const animate = () => {
@@ -528,8 +542,15 @@ const Loader = ({ finishLoading }) => {
       });
   }
 
+  function setlike(){
+    Liked[replyindex-1] = !Liked[replyindex-1];
+    setisLiked(Liked[replyindex-1]);
+    console.log(Liked);
+    
+    
+  }
+
   function animatelike(){
-    setisLiked(!isLiked);
     const like = anime.timeline({
       complete: () => null,
     });
@@ -548,23 +569,84 @@ const Loader = ({ finishLoading }) => {
         easing: 'easeInOutQuart',
         scale: 1,
       })
+    setlike();
   }
 
+
   function replies(i){
-    if (replyindex +i < minreply){
-      replyindex = minreply;
-    }
-    else if (replyindex +i >= maxreplies){
+    if (replyindex +i < minreply +1){
       replyindex = maxreplies;
+    }
+    else if (replyindex +i > maxreplies){
+      replyindex = minreply+1;
     }
     else {
       replyindex +=i;
     }
-    console.log(replyindex);
-    document.getElementById("songtitle").innerHTML=data[replyindex-1]
-    animatelike();
-        
+
+    const prevnext = anime.timeline({
+      complete: () => null,
+    });
+
+    if (i==1){
+      var targ = '.right-skip'
+    }
+    else{
+      var targ = '.left-skip'
+    }
+
+    prevnext
+      .add({
+        targets: targ,
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        scale: 0.9,
+        foll : '#1DB954',
+      })
+      .add({
+        targets: targ,
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        scale: 1,
+        fill : "#7C7C7C",
+      })
+      .add({
+        targets: '.song',
+        delay: 0,
+        duration: 50,
+        easing: 'easeInOutQuart',
+        translateX: i*-30,
+        opacity: 0,
+      }, '-=100')
+      .add({
+        targets: '.song',
+        delay: 5,
+        duration: 20,
+        update: function(){
+          document.getElementById("songtitle").innerHTML=data[replyindex-1]
+        },
+        translateX: i*60,
+        opacity: 0,
+      })
+      .add({
+        targets: '.song',
+        delay: 0,
+        duration: 50,
+        easing: 'easeInOutQuart',
+        translateX: -0,
+        opacity: 1,
+      })
+
+
+    
+    console.log(Liked);
+    setisLiked(Liked[replyindex-1]);
+    
+    
   }
+
 
   return (
     <StyledLoader className="loader" isMounted={isMounted} isLiked={isLiked}>
