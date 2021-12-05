@@ -5,7 +5,6 @@ import anime from 'animejs';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/icons';
-import { check } from 'prettier';
 
 const musictime = Math.floor(Math.random()*(180 - 240) + 180);
 const minutes = Math.floor(musictime/60);
