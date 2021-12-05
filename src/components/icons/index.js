@@ -14,7 +14,7 @@ export { default as IconPlayStore } from './playstore';
 export { default as IconStar } from './star';
 export { default as IconTwitter } from './twitter';
 export { default as LoadBar } from './loadbar';
-export { default as Heart } from './Heart';
+export { default as Heart } from './heart';
 export { default as SkipRight } from './skipright';
 export { default as SkipLeft } from './skipleft';
 
