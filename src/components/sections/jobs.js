@@ -92,15 +92,20 @@ const StyledTabList = styled.div`
   @media (max-width: 600px) {
     display: flex;
     overflow-x: auto;
-    width: calc(100% + 100px);
+    width: 100%;
     padding-left: 50px;
-    margin-left: -50px;
     margin-bottom: 30px;
+    border-bottom: 1px solid var(--green);
+    ::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+    }
   }
   @media (max-width: 480px) {
-    width: calc(100% + 50px);
+    width: 100%;
     padding-left: 25px;
-    margin-left: -25px;
+    padding-right: 25px;
+    border-bottom: 1px solid var(--green);
+
   }
 
   li {
@@ -140,14 +145,19 @@ const StyledTabButton = styled.button`
   white-space: nowrap;
 
   @media (max-width: 768px) {
+    ${({ theme }) => theme.mixins.flexCenter};
     padding: 0 15px 2px;
+    height: 50px;
+    border-radius: 0px;
+    white-space: normal;
+    text-align: center;
+    
   }
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--green);
     text-align: center;
   }
 
@@ -197,10 +207,32 @@ const StyledTabPanels = styled.div`
 const StyledTabPanel = styled.div`
   width: 100%;
   height: auto;
-  padding: 10px 5px 0 50px;
 
   .container-j {
     display: flex;
+
+    @media (max-width: 9999px) {
+      padding: 10px 5px 0 50px;
+    }
+
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      border: 2px solid white;
+      
+    }
+  
+  
 
     .job {
       width: 65%;
@@ -238,6 +270,17 @@ const StyledTabPanel = styled.div`
       margin-left: 40px;
       align-items: center;
       gap: 25px;
+      @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+      @media (max-width: 768px) {
+        margin-top: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    
 
       @media (max-width: 600px) {
         margin-left: 0;
@@ -251,12 +294,20 @@ const StyledTabPanel = styled.div`
         align-items: center;
         justify-content: flex-start;
 
+        @media (max-width: 768px) {
+          flex-direction: column;
+
+        }
+      
+
         .icon-container {
           position: relative;
           width: 45px;
           height: 45px;
           border-radius: 8px;
           transition: var(--transition);
+          @media (max-width: 768px) {
+          }
 
           svg {
             display: flex;
@@ -279,6 +330,11 @@ const StyledTabPanel = styled.div`
           font-size: var(--fz-md);
           margin: 0 0 0 20px;
           width: 70%;
+
+          @media (max-width: 768px) {
+            margin:auto;
+            width: 100%;
+          }
         }
       }
     }
@@ -366,7 +422,7 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Education and experience</h2>
+      <h2 className="numbered-heading">Education/Experience</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>

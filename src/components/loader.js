@@ -32,12 +32,21 @@ const StyledLoader = styled.div`
   z-index: 99;
   
   
+
+  
+
   .above-bar {
     width: 460px;
     margin: auto;
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+  
+
 
     .names{
       display: flex;
@@ -61,6 +70,11 @@ const StyledLoader = styled.div`
       margin-right: -30px;
       padding-top: 10px;
       padding-bottom: 0px;
+
+      @media (max-width: 768px) {
+        width: 25%;
+      }
+    
       
       svg{
         stroke: ${props => (props.isLiked ? 'var(--green)' : 'var(--darkgrey)')};
@@ -86,6 +100,10 @@ const StyledLoader = styled.div`
     margin: auto;
     width: max-content;
     display:flex;
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
+  
     
 
     .left-skip{
@@ -93,6 +111,12 @@ const StyledLoader = styled.div`
       justify-content: space-around;
       align-items: center;
       width:170px;
+
+      @media (max-width: 768px) {
+        width: 100px;
+      }
+    
+
       svg {
         margin:auto;
         width: 40%;
@@ -113,6 +137,11 @@ const StyledLoader = styled.div`
       justify-content: space-around;
       align-items: center;
       width:170px;
+
+      @media (max-width: 768px) {
+        width: 100px;
+      }
+    
       svg {
         margin:auto;
         width: 40%;
@@ -149,6 +178,12 @@ const StyledLoader = styled.div`
   }
   .level-bar{
     display: flex;
+    margin: auto;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+  
     
 
     .left-time{
@@ -158,6 +193,11 @@ const StyledLoader = styled.div`
       justify-content: space-around;
       font-size: smaller;
       color: var(--darkgrey);
+
+      @media (max-width: 768px) {
+        margin-right: 10px;
+      }
+    
     }
 
     .right-time{
@@ -167,6 +207,11 @@ const StyledLoader = styled.div`
       justify-content: space-around;
       font-size: smaller;
       color: var(--darkgrey);
+
+      @media (max-width: 768px) {
+        margin-left: 10px;
+      }
+    
     }
 
 
@@ -175,6 +220,8 @@ const StyledLoader = styled.div`
       width: 500px;
       max-width: 2000px;
       transition: var(--transition);
+
+    
       
       svg{
         display: flex;
@@ -183,6 +230,13 @@ const StyledLoader = styled.div`
         height: 100%;
         margin: auto;
         user-select: none;
+
+
+        @media (max-width: 768px) {
+          width: 150%;
+        }
+      
+
         #bar-container
         {
           fill: var(--verydarkgrey);

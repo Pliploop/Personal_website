@@ -54,11 +54,15 @@ const StyledText = styled.div`
 `;
 const StyledPic = styled.div`
   position: relative;
-  max-width: 300px;
+  max-width: 100%;
 
   @media (max-width: 768px) {
-    margin: 50px auto 0;
+    margin-top: 50px;
+    margin-left: 37%;
+    margin-right:0;
     width: 70%;
+    
+    overflow-x:clip;
   }
 
   .wrapper {
@@ -68,7 +72,8 @@ const StyledPic = styled.div`
     width: 140%;
     border-radius: 500px;
     background-color: transparent;
-    
+    @media (max-width: 768px) {
+          overflow-x:visible;
 
     &:hover,
     &:focus {
@@ -84,6 +89,8 @@ const StyledPic = styled.div`
         filter: none;
         mix-blend-mode: normal;
         z-index: 0;
+        
+        }
       }
     }
 
