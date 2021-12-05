@@ -25,8 +25,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :focus {
-    outline: 2px dashed var(--green);
-    outline-offset: 3px;
+    border-radius: 5px;
+    backgroung: var(--verydarkgrey);
   }
 
   /* Scrollbar Styles */

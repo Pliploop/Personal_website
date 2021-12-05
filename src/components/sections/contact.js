@@ -17,8 +17,8 @@ const StyledContactSection = styled.section`
     display: block;
     margin-bottom: 20px;
     color: var(--green);
-    font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-family: var(--font-sans);
+    font-size: var(--fz-lg);
     font-weight: 400;
 
     &:before {
@@ -55,17 +55,18 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
+      <h2 className="numbered-heading overline">I'm looking for work!</h2>
 
       <h2 className="title">Get In Touch</h2>
 
       <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+        I'm currently looking for an end-of-studies internship in Data science and dev. If you liked
+        what you saw and would like to contact me for further discussion about a position you
+        consider me apt to fill, please email me!
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
-        Say Hello
+        Shoot me an email!
       </a>
     </StyledContactSection>
   );

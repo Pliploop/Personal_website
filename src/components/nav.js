@@ -33,7 +33,7 @@ const StyledHeader = styled.header`
 
   @media (prefers-reduced-motion: no-preference) {
     ${props =>
-    props.scrollDirection === 'up' &&
+      props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -43,7 +43,7 @@ const StyledHeader = styled.header`
       `};
 
     ${props =>
-    props.scrollDirection === 'down' &&
+      props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -59,7 +59,7 @@ const StyledNav = styled.nav`
   width: 100%;
   color: var(--darkgrey);
   font-family: var(--font-sans);
-  
+
   counter-reset: item 0;
   z-index: 12;
 
@@ -90,7 +90,6 @@ const StyledNav = styled.nav`
 const StyledLinks = styled.div`
   display: flex;
   align-items: center;
-  
 
   @media (max-width: 768px) {
     display: none;
@@ -129,10 +128,6 @@ const StyledLinks = styled.div`
   }
 `;
 
-
-
-
-
 const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
@@ -160,24 +155,30 @@ const Nav = ({ isHome }) => {
     };
   }, []);
 
+  function scroll()
+  {
+    document.querySelector('#root').scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
+
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
 
   const Logo = (
-    <div className="logo" tabIndex="-1">
+    <div className="logo" tabIndex="-1" id='playbutton'>
       {isHome ? (
-        <a href="/" aria-label="home">
+        <Link to="/#root" aria-label="home">
           <IconLogo />
-        </a>
+        </Link>
       ) : (
-        <Link to="/" aria-label="home">
+        <Link to="/#root" aria-label="home">
           <IconLogo />
         </Link>
       )}
     </div>
   );
-
 
   const ResumeLink = (
     <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -191,6 +192,7 @@ const Nav = ({ isHome }) => {
         {prefersReducedMotion ? (
           <>
             {Logo}
+            <script src="https://sdk.scdn.co/spotify-player.js"></script>
             <StyledLinks>
               <ol>
                 {navLinks &&
