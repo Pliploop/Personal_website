@@ -9,7 +9,7 @@ tech:
   - Photoshop
 company: ''
 showInProjects: true
-image: './img.png'
+image: './Contretemps.jpg'
 ---
 
 Created posters, profile pictures, videos and mixed part of an album which was then distributed on spotify for a student musical

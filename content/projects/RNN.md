@@ -9,7 +9,7 @@ tech:
   - Git
 company: ''
 showInProjects: true
-image: './img.png'
+image: './RNN.png'
 ---
 
 Predicted GOOGL stock prices based on historical data to within 1% accuracy range.

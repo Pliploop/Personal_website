@@ -8,7 +8,7 @@ tech:
   - Git
   - Object-Oriented
 showInProjects: true
-image: './img.png'
+image: './Sudoku.jpg'
 ---
 
 Created a sudoku solver app with pygame as a starter project
