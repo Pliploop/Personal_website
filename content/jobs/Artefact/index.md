@@ -8,6 +8,7 @@ url: 'https://www.artefact.com/'
 skills: ['Python','TensorFlow','Git','Azure Cloud']
 ---
 
-- bullet 1
-- bullet 2
-- bullet 3
+-  Worked as a data science consultant with various clients, implementing and testing machine learning algorithms
+-  Created a bulk labelling web app towards greatly reducing the amount of time spent labelling data samples in NLP appplications
+-  Participated in the creation of a sentiment analysis pipeline for an ENGIE internal call desk: implemented sentiment analysis on speech-to-text generated dialog from phone calls.
+-  Worked with Mecanicus, a car pricing company towards impelemnting a custom layer-structured fuzzy matcher algorithm to match market listings to their clean database

@@ -45,7 +45,7 @@ const StyledProjectsSection = styled.section`
     
       display: flex;
       max-width: 116%;
-      height: 300px;
+      height: 400px;
       margin-left: -8%;
       padding-left: 8%;
       margin-right: -8%;
@@ -94,8 +94,8 @@ const StyledProject = styled.li`
     
       width: 200px;
       height: 100%;
-      align-items: center;
-      justify-content: space-evenly;
+      align-items: flex-start;
+      justify-content: flex-start;
       
     }
   }
@@ -224,8 +224,8 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: var(--light-slate);
-    font-size: 17px;
+    color: var(--darkgrey);
+    font-size: 13px;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -235,6 +235,8 @@ const StyledProject = styled.li`
   .project-links {
     color: var(--darkgrey);
     margin-left: 80%;
+    margin-bottom: 10px;
+    margin-top: auto;
 
     a {
       padding: 0px 5px;
@@ -276,6 +278,7 @@ const Projects = () => {
               tech
               github
               external
+              description
               image {
                 childImageSharp {
                   gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
@@ -313,7 +316,7 @@ const Projects = () => {
 
   const projectInner = node => {
     const { frontmatter, html } = node;
-    const { github, external, title, tech, image } = frontmatter;
+    const { github, external, description, title, tech, image } = frontmatter;
     const cover = getImage(image);
 
     return (

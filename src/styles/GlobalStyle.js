@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    @media (max-width: 768px) {  
+      overflow-x: hidden;
+    }
+
   }
 
   

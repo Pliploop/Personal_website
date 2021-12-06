@@ -37,7 +37,7 @@ const StyledText = styled.div`
       font-size: var(--fz-xs);
 
       &:before {
-        content: '▹';
+        content: '>';
         position: absolute;
         left: 0;
         color: var(--green);
@@ -69,7 +69,7 @@ const StyledPic = styled.div`
     ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
-    width: 140%;
+    width: 100%;
     border-radius: 500px;
     background-color: transparent;
     @media (max-width: 768px) {
@@ -144,7 +144,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = ['Python', 'Pytorch', 'TensorFlow/Keras', 'SQL', 'Git', 'C++','Azure/AWS','Jenkins'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>

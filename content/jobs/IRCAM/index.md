@@ -8,4 +8,6 @@ url: 'https://www.ircam.fr/'
 skills: ['Applied physics','Matlab','Acoustics','Research']
 ---
 
-- Bullet
+- Worked with a research team towards implementing active modal control of the first vibrational modes of a cello.
+- Used matlab to simulate the sound produced by a struck or bowed cello string with coupling to the body.
+- Conducted thorough bibliography analysis of state of the art simulation methods.

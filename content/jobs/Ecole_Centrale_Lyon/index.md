@@ -8,4 +8,6 @@ url: 'https://www.ec-lyon.fr/'
 skills: ['Python','Statistics','Acoustics','Matlab']
 ---
 
-- Bullet 1
+- Attended the top 4th engineering school in france towards obtaining my master's degree in general engineering
+- Undertook Advanced statistics, Advanced signal processing, Object oriented programming (C++ and Python), and linear algebra courses
+- Undertook many associative activities such as : President of the sound engineering student association, Sound engineer and community manager for a student-produced musical.

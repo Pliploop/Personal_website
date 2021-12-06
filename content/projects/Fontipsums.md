@@ -1,11 +1,14 @@
 ---
 date: '2016-01-01'
-title: 'Fontipsums'
-github: 'https://github.com/bchiang7/fontipsums/'
-external: 'http://bchiang7.github.io/fontipsums/'
+title: 'Sudoku Solver'
+github: 'https://github.com/Pliploop/Sudokusolver'
+external: ''
 tech:
-  - HTML
-  - SCSS
+  - Python
+  - Git
+  - Object-Oriented
 showInProjects: true
 image: './img.png'
 ---
+
+Created a sudoku solver app with pygame as a starter project
