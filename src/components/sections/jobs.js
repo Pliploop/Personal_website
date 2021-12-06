@@ -228,7 +228,6 @@ const StyledTabPanel = styled.div`
 
     @media (max-width: 480px) {
       flex-direction: column;
-      border: 2px solid white;
       
     }
   
@@ -236,6 +235,12 @@ const StyledTabPanel = styled.div`
 
     .job {
       width: 65%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        
+      }
+    
 
       ul {
         ${({ theme }) => theme.mixins.fancyList};
@@ -270,15 +275,16 @@ const StyledTabPanel = styled.div`
       margin-left: 40px;
       align-items: center;
       gap: 25px;
-      @media (max-width: 768px) {
-      flex-direction: column;
-    }
+      
 
       @media (max-width: 768px) {
         margin-top: 10px;
         flex-direction: row;
-        justify-content: space-around;
+        width: 100%;
+        justify-content: space-evenly;
         flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 0;
       }
     
 
@@ -296,7 +302,7 @@ const StyledTabPanel = styled.div`
 
         @media (max-width: 768px) {
           flex-direction: column;
-
+          width: 15%;
         }
       
 
@@ -306,8 +312,7 @@ const StyledTabPanel = styled.div`
           height: 45px;
           border-radius: 8px;
           transition: var(--transition);
-          @media (max-width: 768px) {
-          }
+          
 
           svg {
             display: flex;
@@ -332,7 +337,11 @@ const StyledTabPanel = styled.div`
           width: 70%;
 
           @media (max-width: 768px) {
-            margin:auto;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            margin: 0;
             width: 100%;
           }
         }
