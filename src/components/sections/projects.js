@@ -12,6 +12,10 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 768px) {
+    
+    align-content: flex-start;
+  }
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
@@ -27,7 +31,7 @@ const StyledProjectsSection = styled.section`
 
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
-    max-width: 1000px;
+    max-width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 20px;
@@ -36,6 +40,19 @@ const StyledProjectsSection = styled.section`
 
     @media (max-width: 1080px) {
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    @media (max-width: 768px) {
+    
+      display: flex;
+      max-width: 116%;
+      height: 300px;
+      margin-left: -8%;
+      padding-left: 8%;
+      margin-right: -8%;
+      padding-right: 8%;
+      overflow: scroll;
+      justify-content: flex-start;
+      
     }
   }
 
@@ -48,7 +65,6 @@ const StyledProjectsSection = styled.section`
 const StyledProject = styled.li`
   position: relative;
   cursor: default;
-  transition: var(--transition);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
@@ -73,7 +89,15 @@ const StyledProject = styled.li`
     padding: 1.1rem 1.1rem;
     border-radius: 10px;
     background-color: var(--verydarkgrey);
-    transition: var(--transition);
+    
+    @media (max-width: 768px) {
+    
+      width: 200px;
+      height: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      
+    }
   }
 
   .project-top {
@@ -209,9 +233,8 @@ const StyledProject = styled.li`
   }
 
   .project-links {
-    margin-right: -100px;
     color: var(--darkgrey);
-    margin-left: 150px;
+    margin-left: 80%;
 
     a {
       padding: 0px 5px;
@@ -362,13 +385,12 @@ const Projects = () => {
                 <CSSTransition
                   key={i}
                   classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  timeout={200}
                   exit={false}>
                   <StyledProject
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
                     style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      transitionDelay: `$100ms`,
                     }}>
                     {projectInner(node)}
                   </StyledProject>

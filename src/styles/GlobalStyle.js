@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  
   *,
   *:before,
   *:after {
