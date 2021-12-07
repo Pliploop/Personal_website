@@ -4,5 +4,23 @@ tech:
     - what's up
     - looking for a data scientist?
     - me too, hard to come by eh? 
-    - anyways
+    - no?
+    - a data ANALYST then?
+    - neither?
+    - ML engineer!
+    - Darn...
+    - MIR researcher then!
+    - nope?
+    - a web dev? I can try but...
+    - What are you looking for then?
+    - A graphic designer?
+    - Just a cool guy to hang around?
+    - Or are you just trying to see...
+    - how far this goes?
+    - It can go on a while...
+    - I would've put a real playlist here
+    - but...
+    - The spotify API is no joke
+    - and I'm not a front end dev
+    - anyways...
 ---
