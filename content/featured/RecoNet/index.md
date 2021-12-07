@@ -10,4 +10,4 @@ tech:
   - Signal Processing
 ---
 
-Personal Project given the opportunity to be brought to life in the context of my applied machine learning class at University of adelaide: Data sourced 60000 vocal audio clips from 23 artists to train a computer vision model on their spectrograms for vocalist classification, achieving 70% accuracy with high overfitting (can do better)
+Personal Project given the opportunity to be brought to life in the context of my applied machine learning class at University of Adelaide: Data sourced 60000 vocal audio clips from 23 artists to train a computer vision model on their spectrograms for vocalist classification, achieving 70% accuracy with high overfitting (can do better)

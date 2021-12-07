@@ -54,26 +54,21 @@ const StyledText = styled.div`
 `;
 const StyledPic = styled.div`
   position: relative;
-  max-width: 100%;
+  max-width: 300px;
 
   @media (max-width: 768px) {
-    margin-top: 50px;
-    margin-left: 37%;
-    margin-right:0;
+    margin: 50px auto 0;
     width: 70%;
-    
-    overflow-x:clip;
   }
 
   .wrapper {
     ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
-    width: 100%;
+    width: 140%;
     border-radius: 500px;
     background-color: transparent;
-    @media (max-width: 768px) {
-          overflow-x:visible;
+    
 
     &:hover,
     &:focus {
@@ -89,7 +84,8 @@ const StyledPic = styled.div`
         filter: none;
         mix-blend-mode: normal;
         z-index: 0;
-        
+        @media (max-width: 768px) {
+          overflow-x:visible;
         }
       }
     }
@@ -144,7 +140,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Python', 'Pytorch', 'TensorFlow/Keras', 'SQL', 'Git', 'C++','Azure/AWS','Jenkins'];
+  const skills = ['Python', 'Pytorch', 'TensorFlow/Keras', 'SQL/NoSQL', 'Git', 'Azure/AWS', 'C++','Jenkins'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
