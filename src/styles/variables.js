@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 
-// Green : 1DB954
+
 
 const variables = css`
   :root {
     --bg: #161616;
-    --green: #1DB954;
+    --green: #EA5A64;
     --lightgrey: #A0A0A0;
     --darkgrey: #7C7C7C;
     --logogrey : #494949;
