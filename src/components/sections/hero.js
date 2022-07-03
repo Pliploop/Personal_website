@@ -67,8 +67,8 @@ const Hero = () => {
       <p>
         I’m a French-American engineering student passionate about music and focused on
         data science and machine learning, specifically music information retrieval.
-        Currently, I’m looking for an <a>end-of studies internship</a> in machine learning and
-        focusing on <a>personal projects</a>. 
+        Currently, I’m looking for an <a>long-term position as a MIR-oriented data scientist or PhD candidate</a> in MIR and
+        focusing on MIR-related <a>personal projects</a>. 
       </p>
     </>
   );
