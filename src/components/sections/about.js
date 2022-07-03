@@ -140,7 +140,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Python', 'Pytorch', 'TensorFlow/Keras/Sklearn', 'SQL/NoSQL', 'Git', 'Azure/AWS', 'C++','Jenkins'];
+  const skills = ['Python', 'Pytorch', 'TensorFlow/Keras', 'Librosa','SQL/NoSQL', 'Git', 'Azure/AWS', 'C++','Jenkins'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -157,14 +157,13 @@ const About = () => {
             </p>
 
             <p>
-              Up till now, I’ve been pursuing studies in engineering, with a focus on musical
-              acoustics and data science in <a href="https://www.ec-lyon.fr/">France</a>{' '} and <a href="https://www.adelaide.edu.au/">Australia</a>{' '}. My discovery of data science
+              Up till now, I’ve been pursuing studies in engineering, with a focus on Musical acoustics and deep learning <a href="https://www.ec-lyon.fr/">France</a>{' '} and <a href="https://www.adelaide.edu.au/">Australia</a>{' '}. My discovery of data science
               and my problem-solving mindset have led me to pursue independent and 
-              university courses in the domains of machine learning and deep learning. 
+              university courses in the domains of machine learning, deep learning, and more specifically MIR. 
             </p>
 
             <p>
-              My personal projects and interships at <a href="https://www.data-newroad.com/">Data New Road</a>{' '} and <a href="https://www.artefact.com/">Artefact</a>{' '} have given me
+              My personal projects and interships at <a href="https://www.data-newroad.com/">Data New Road</a>{' '}, <a href="https://www.artefact.com/">Artefact</a>{' '}, and more recently at <a href="https://www.groover.co/">Groover</a>{' '} have given me
               the opportunity to work with the following technologies:    
             </p>
           </div>
