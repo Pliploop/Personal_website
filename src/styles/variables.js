@@ -5,13 +5,13 @@ import { css } from 'styled-components';
 const variables = css`
   :root {
     --bg: #161616;
-    --green: #EA5A64;
+    --green: #2181ff;
     --lightgrey: #A0A0A0;
     --darkgrey: #7C7C7C;
     --logogrey : #494949;
     --white: #FFFFFF;
     --verydarkgrey: #1F1F1F;
-    --greenshade : #166D30;
+    --greenshade : #2181ff;
     --greyfill : #292929;
     
 
