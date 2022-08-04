@@ -1,5 +1,5 @@
 ---
-date: '1'
+date: '2'
 title: 'Bulk labelling app'
 cover: './streamlit.png'
 github: 'https://github.com/Pliploop/NLP_Bulk_labelling_app'

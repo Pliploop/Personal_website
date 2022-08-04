@@ -1,5 +1,5 @@
 ---
-date: '2'
+date: '1'
 title: 'Vocalist Spectrogram Classification'
 cover: './demo2.png'
 github: 'https://github.com/Pliploop/Spectrogram_Artist_Recognition'

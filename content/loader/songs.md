@@ -1,26 +1,58 @@
 ---
 tech:
-    - hey you!
-    - what's up
-    - looking for a data scientist?
-    - me too, hard to come by eh? 
-    - no?
-    - a data ANALYST then?
-    - neither?
-    - ML engineer!
-    - Darn...
-    - MIR researcher then!
-    - nope?
-    - a web dev? I can try but...
-    - What are you looking for then?
-    - A graphic designer?
-    - Just a cool guy to hang around?
-    - Or are you just trying to see...
-    - how far this goes?
-    - It can go on a while...
-    - I would've put a real playlist here
-    - but...
-    - The spotify API is no joke
-    - and I'm not a front end dev
-    - anyways...
+    - Hey!
+    - This page is interactive.
+    - just a fun little project
+    - if you press the play button... 
+    - you'll get to know me better!
+    - but since you keep scrolling...
+    - How are you?
+    - You must be here because I applied
+    - to a job you posted?
+    - I'm veeery enthusiastic about music.
+    - I mean, this whole page is modeled...
+    - after the spotify UI
+    - So if passion is an issue for you
+    - No need to fret, I *am* passionate.
+    - So what can I do, you ask?
+    - Well, I'm pretty good at classification MIR
+    - So I'd make a great MIR research scientist.
+    - I do a lot of mixing and know signal processing
+    - thanks to my years as a MSc student.
+    - So understanding music and signal is a breeze.
+    - I know pandas and TF like the back of my hand.
+    - Pytorch also, I'm polyvalent ;)
+    - SQL is a no-brainer!
+    - So I also make a pretty good data scientist.
+    - If need be, I use metabase and have a basis tableau
+    - and powerBI, so analyst is also a possiblity
+    - but I'd rather stay as close to music as possible.
+    - It is my passion after all
+    - And one of my dreams is to be published!
+    - In ISMIR would be great
+    - I'm working on a few independent research projects
+    - Vocal register segmentation...
+    - Video classification for music tagging...
+    - I'm surprised you're still here!
+    - I wanted to add a spotify playlist here 
+    - but I'm barely a web dev and the spotify API...
+    - Is no joke :/
+    - I'll get to it some day!
+    - You'd best move along now
+    - Much more to see by pressing the play button!
+    - If you want some artist recommendations;
+    - silk sonic
+    - Tom Misch
+    - Earth Wind and Fire (obviously)
+    - Disclosure
+    - Daft punk!
+    - Justice
+    - There you go :)
+    - It was great talking to you!
+    - But I'm running out of ideas now
+    - I doubt anyone ever makes it here
+    - but if you do, please hire me?
+    - Pretty please?
+    - Alright, see you later!
+    - Sending you back to the start now :^)
 ---

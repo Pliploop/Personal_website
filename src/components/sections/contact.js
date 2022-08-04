@@ -60,8 +60,8 @@ const Contact = () => {
       <h2 className="title">Get In Touch</h2>
 
       <p>
-        I'm currently looking for an end-of-studies internship in Data science and dev. If you liked
-        what you saw and would like to contact me for further discussion about a position you
+        I'm currently looking for a MIR research position, a data science position (possibly music-oriented), or a ML research position.
+        If you liked what you saw and would like to contact me for further discussion about a position you
         consider me apt to fill, please email me!
       </p>
 
