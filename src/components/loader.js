@@ -6,14 +6,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/icons';
 
-var musictime = Math.floor(Math.random()*(180 - 240) + 180);
-var minutes = Math.floor(musictime/60);
-var seconds = ("0" + musictime%60).slice(-2);
+const musictime = Math.floor(Math.random()*(180 - 240) + 180);
+const minutes = Math.floor(musictime/60);
+const seconds = ("0" + musictime%60).slice(-2);
 const maxreplies = 55;
-var playing = false
-var paused = false
-var time_seconds = 0
-var timestring = Math.floor(time_seconds/60) + ':' + ("0" + time_seconds%60).slice(-2)
 
 
 var Liked = [];   
@@ -592,13 +588,160 @@ const Loader = ({ finishLoading }) => {
   }, []);
 
   function animateplay() {
-    if (paused==true){
-      play.reverse()
-      paused = false
-    }
-    console.log('playing')
-    play.play()
-    bar.play()
+    const play = anime.timeline({
+      complete: () => finishLoading(),
+    });
+    console.log(Math.round(play.progress))
+    play
+      .add({
+        targets: '#logo #play',
+        delay: 0,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        scale: 0.6,
+        fill: '#2181ff',
+        stroke: '#2181ff',
+      })
+      .add(
+        {
+          targets: '#logo #circle',
+          delay: 0,
+          duration: 100,
+          easing: 'easeInOutQuart',
+          stroke: '#2181ff',
+          scale: 0.8,
+        },
+        '-=100',
+      )
+      .add(
+        {
+          targets: '#logo #rightplay',
+          delay: 0,
+          duration: 100,
+          easing: 'easeInOutQuart',
+          scale: 0.6,
+        },
+        '-=100',
+      )
+      .add(
+        {
+          targets: '#logo #leftplay',
+          delay: 0,
+          duration: 100,
+          easing: 'easeInOutQuart',
+          scale: 0.6,
+        },
+        '-=100',
+      )
+      .add(
+        {
+          targets: '#logo #play',
+          delay: 0,
+          duration: 100,
+          easing: 'easeInOutQuart',
+          opacity: 0,
+        },
+        '-=100',
+      )
+
+      .add({
+        targets: '#logo #leftplay',
+        points: [{ value: '   29.54 23.53 29.54 62.95  40.83 62.97  40.88 23.53 29.54 23.53 ' }],
+        easing: 'easeOutQuad',
+        delay: 0,
+        scale: 1,
+        duration: 100,
+        stroke: '#161616',
+        fill: '#161616',
+      })
+      .add(
+        {
+          targets: '#logo #rightplay',
+          points: [{ value: '50.12 23.53 61.46 23.53 61.4 62.97 50.12 62.95 50.12 23.53' }],
+          easing: 'easeOutQuad',
+          delay: 0,
+          scale: 1,
+          duration: 100,
+
+          stroke: '#161616',
+          fill: '#161616',
+        },
+        '-=100',
+      )
+
+      .add(
+        {
+          targets: '#logo #circle',
+          easing: 'easeOutQuad',
+          delay: 0,
+          scale: 1,
+          duration: 100,
+        },
+        '-=100',
+      )
+
+      .add(
+        {
+          targets: '#logo #circle',
+
+          easing: 'easeOutQuad',
+          delay: 0,
+          duration: 100,
+
+          stroke: '#FFFFFF',
+          fill: '#FFFFFF',
+        },
+        '-=100',
+      )
+      .add({
+        targets: '#bar #progress',
+        easing: 'easeOutQuad',
+        delay: 0,
+        duration: 50,
+        opacity: 1,
+      })
+      .add({
+        targets: '#bar #progress',
+        easing: 'linear',
+        delay: 0,
+        duration: Math.floor(Math.random()*(1200 - 1800) + 1200),
+        width: '335.32',
+        update: function(anim){
+          var time_seconds = Math.round(0.01*anim.progress*musictime);
+          console.log();
+          var timestring = Math.floor(time_seconds/60) + ':' + ("0" + time_seconds%60).slice(-2)
+          document.getElementById("progresstime").innerHTML=timestring
+        },
+      })
+      .add(
+        {
+          targets: ['#logo','#bar','#heart',"#skipright",'#skipleft','.song','.artist','.left-time','.right-time'],
+          delay: 300,
+          duration: 300,
+          easing: 'easeInOutQuart',
+          opacity: 0,
+          scale: 0.1,
+        },
+        '-=100',
+      )
+      // .add(
+      //   {
+      //     targets: '#bar',
+      //     delay: 0,
+      //     duration: 300,
+      //     easing: 'easeInOutQuart',
+      //     opacity: 0,
+      //     scale: 0.1,
+      //   },
+      //   '-=300',
+      // )
+      .add({
+        targets: '.loader',
+        duration: 200,
+        easing: 'easeInOutQuart',
+        opacity: 0,
+        zIndex: -1,
+      });
   }
   
 
@@ -666,7 +809,8 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 0.9,
-        fill : '#1DB954',
+        fill : '#2181ff',
+
       })
       .add({
         targets: targ,
