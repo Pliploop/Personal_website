@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import anime from 'animejs';
+import { timeline, setDashoffset } from 'animejs/lib/anime';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/icons';
@@ -267,12 +267,12 @@ const Loader = ({ finishLoading }) => {
   const [isLiked, setisLiked] = useState(false);
   var time_seconds = 0
   
-  const play = anime.timeline({
+  var play = timeline({
     complete: () => null,
     autoplay : false
   });
 
-  const bar = anime.timeline({
+  var bar = timeline({
     complete: () => finishLoading(),
     autoplay : false
   });
@@ -440,7 +440,7 @@ const Loader = ({ finishLoading }) => {
 
 
   const animate = () => {
-    const loader = anime.timeline({
+    const loader = timeline({
       complete: () => null,
     });
 
@@ -450,7 +450,7 @@ const Loader = ({ finishLoading }) => {
         delay: 300,
         duration: 500,
         easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
+        strokeDashoffset: [setDashoffset, 0],
       })
       .add(
         {
@@ -458,7 +458,7 @@ const Loader = ({ finishLoading }) => {
           delay: 0,
           duration: 500,
           easing: 'easeInOutQuart',
-          strokeDashoffset: [anime.setDashoffset, 0],
+          strokeDashoffset: [setDashoffset, 0],
           opacity: 1,
           fill: '#FFFFFF',
         },
@@ -615,7 +615,7 @@ const Loader = ({ finishLoading }) => {
   }
 
   function animatelike(){
-    const like = anime.timeline({
+    const like = timeline({
       complete: () => null,
     });
     like
@@ -648,7 +648,7 @@ const Loader = ({ finishLoading }) => {
       replyindex +=i;
     }
 
-    const prevnext = anime.timeline({
+    const prevnext = timeline({
       complete: () => null,
     });
 
