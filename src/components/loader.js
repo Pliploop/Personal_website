@@ -9,7 +9,7 @@ import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/ico
 const musictime = Math.floor(Math.random()*(180 - 240) + 180);
 const minutes = Math.floor(musictime/60);
 const seconds = ("0" + musictime%60).slice(-2);
-const maxreplies = 23;
+const maxreplies = 55;
 
 var Liked = [];   
   for (var i = 0; i < maxreplies; i++) {
@@ -450,8 +450,8 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 0.6,
-        fill: '#EA5A64',
-        stroke: '#EA5A64',
+        fill: '#2181ff',
+        stroke: '#2181ff',
       })
       .add(
         {
@@ -459,7 +459,7 @@ const Loader = ({ finishLoading }) => {
           delay: 0,
           duration: 100,
           easing: 'easeInOutQuart',
-          stroke: '#EA5A64',
+          stroke: '#2181ff',
           scale: 0.8,
         },
         '-=100',
@@ -655,7 +655,7 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 0.9,
-        foll : '#1DB954',
+        fill : '#2181ff',
       })
       .add({
         targets: targ,
