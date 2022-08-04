@@ -7,7 +7,8 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo } from '@components/icons';
+import anime from 'animejs/lib/anime';
+import { IconLogo, IconMoon } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -119,8 +120,7 @@ const StyledLinks = styled.div`
         }
       }
     }
-  }
-
+  
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
@@ -133,6 +133,63 @@ const Nav = ({ isHome }) => {
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
+  var nightmode = true;
+
+  // const darkmodeanime = anime.timeline({
+  //   complete: () => null,
+  //   autoplay: false,
+  // });
+  // darkmodeanime
+  //   .add({
+  //     targets: '#moon',
+  //     delay: 0,
+  //     duration: 80,
+  //     easing: 'easeInOutQuart',
+  //     scale: 0.9,
+  //     fill: '#2181ff',
+  //     stroke: '#2181ff',
+  //   })
+  //   .add({
+  //     targets: '#moon',
+  //     delay: 100,
+  //     duration: 80,
+  //     easing: 'easeInOutQuart',
+  //     scale: 1,
+  //   });
+
+  // const lightmodeanime = anime.timeline({
+  //   complete: () => null,
+  //   autoplay: false,
+  // });
+  // lightmodeanime
+  //   .add({
+  //     targets: '#moon',
+  //     delay: 0,
+  //     duration: 80,
+  //     easing: 'easeInOutQuart',
+  //     scale: 0.9,
+  //     fill: 'var(--darkgrey)',
+  //     stroke: 'var(--darkgrey)',
+  //   })
+  //   .add({
+  //     targets: '#moon',
+  //     delay: 100,
+  //     duration: 80,
+  //     easing: 'easeInOutQuart',
+  //     scale: 1,
+  //   });
+
+  function handledarkmode() {
+    if (nightmode == true) {
+      console.log('switching to light mode');
+      nightmode = false;
+      //lightmodeanime.play();
+    } else {
+      console.log('switching to dark mode');
+      nightmode = true;
+      //darkmodeanime.play();
+    }
+  }
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -155,11 +212,10 @@ const Nav = ({ isHome }) => {
     };
   }, []);
 
-  function scroll()
-  {
+  function scroll() {
     document.querySelector('#root').scrollIntoView({
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
   }
 
   const timeout = isHome ? loaderDelay : 0;
@@ -167,7 +223,7 @@ const Nav = ({ isHome }) => {
   const fadeDownClass = isHome ? 'fadedown' : '';
 
   const Logo = (
-    <div className="logo" tabIndex="-1" id='playbutton'>
+    <div className="logo" tabIndex="-1" id="playbutton">
       {isHome ? (
         <Link to="/#root" aria-label="home">
           <IconLogo />
@@ -192,8 +248,11 @@ const Nav = ({ isHome }) => {
         {prefersReducedMotion ? (
           <>
             {Logo}
-            <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
             <StyledLinks>
+              <div className="darkmode" onClick={() => handledarkmode()}>
+                <IconMoon />
+              </div>
               <ol>
                 {navLinks &&
                   navLinks.map(({ url, name }, i) => (
@@ -218,6 +277,16 @@ const Nav = ({ isHome }) => {
             </TransitionGroup>
 
             <StyledLinks>
+              <TransitionGroup>
+                {isMounted && (
+                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                    <div className="darkmode" onClick={() => handledarkmode()}>
+                      <IconMoon />
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+
               <ol>
                 <TransitionGroup component={null}>
                   {isMounted &&

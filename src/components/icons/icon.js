@@ -17,6 +17,7 @@ import {
   IconStar,
   IconTwitter,
   LoadBar,
+  IconMoon
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -53,6 +54,8 @@ const Icon = ({ name }) => {
       return <IconBookmark />;
     case 'Bar':
       return <LoadBar/>
+    case 'IconMoon':
+        return <IconMoon/>
     default:
       return <IconExternal />;
   }

@@ -17,6 +17,8 @@ export { default as LoadBar } from './loadbar';
 export { default as Heart } from './heart';
 export { default as SkipRight } from './skipright';
 export { default as SkipLeft } from './skipleft';
+export { default as IconMoon} from './nightmode';
+export { default as IconSun} from './lightmode';
 
 
 
