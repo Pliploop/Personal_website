@@ -6,18 +6,17 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { IconLoader, LoadBar, Heart, SkipLeft, SkipRight } from '@components/icons';
 
-const musictime = Math.floor(Math.random()*(180 - 240) + 180);
-const minutes = Math.floor(musictime/60);
-const seconds = ("0" + musictime%60).slice(-2);
-const maxreplies = 23;
+const musictime = Math.floor(Math.random() * (180 - 240) + 180);
+const minutes = Math.floor(musictime / 60);
+const seconds = ('0' + (musictime % 60)).slice(-2);
+const maxreplies = 55;
 
-var Liked = [];   
-  for (var i = 0; i < maxreplies; i++) {
-    Liked.push(false);
-  }
+var Liked = [];
+for (var i = 0; i < maxreplies; i++) {
+  Liked.push(false);
+}
 
 var replyindex = 1;
-
 
 const StyledLoader = styled.div`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -30,10 +29,6 @@ const StyledLoader = styled.div`
   height: 100%;
   background-color: var(--bg);
   z-index: 99;
-  
-  
-
-  
 
   .above-bar {
     width: 460px;
@@ -45,25 +40,23 @@ const StyledLoader = styled.div`
     @media (max-width: 768px) {
       width: 300px;
     }
-  
 
-
-    .names{
+    .names {
       display: flex;
       flex-direction: column;
-      .song{
+      .song {
         font-weight: bold;
-        color: white
+        color: white;
       }
-      .artist{
+      .artist {
         color: var(--darkgrey);
-        &:hover{
+        &:hover {
           color: var(--green);
         }
       }
     }
 
-    .like-button{
+    .like-button {
       width: 14%;
       height: 20%;
       margin-left: auto;
@@ -74,81 +67,75 @@ const StyledLoader = styled.div`
       @media (max-width: 768px) {
         width: 25%;
       }
-    
-      
-      svg{
+
+      svg {
         stroke: ${props => (props.isLiked ? 'var(--green)' : 'var(--darkgrey)')};
         stroke-width: 5px;
         fill: ${props => (props.isLiked ? 'var(--green)' : 'none')};
         transition: var(--transition-liked);
-        user-select:none;
+        user-select: none;
         width: 35%;
         height: 35%;
-        &:hover{
+        &:hover {
           cursor: pointer;
           stroke: ${props => (props.isLiked ? 'var(--green)' : 'var(--white)')};
-        &:active{
-          fill : var(--green);
-          stroke: var(--green);
-        }
+          &:active {
+            fill: var(--green);
+            stroke: var(--green);
+          }
         }
       }
     }
   }
 
-  .below_bar{
+  .below_bar {
     margin: auto;
     width: max-content;
-    display:flex;
+    display: flex;
     @media (max-width: 768px) {
       margin-top: 10px;
     }
-  
-    
 
-    .left-skip{
+    .left-skip {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width:170px;
+      width: 170px;
 
       @media (max-width: 768px) {
         width: 100px;
       }
-    
 
       svg {
-        margin:auto;
+        margin: auto;
         width: 40%;
         height: 40%;
         fill: var(--darkgrey);
         user-select: none;
-        &:hover{
+        &:hover {
           fill: var(--white);
           cursor: pointer;
         }
       }
-
     }
-    
-    .right-skip{
-      
+
+    .right-skip {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width:170px;
+      width: 170px;
 
       @media (max-width: 768px) {
         width: 100px;
       }
-    
+
       svg {
-        margin:auto;
+        margin: auto;
         width: 40%;
         height: 40%;
         fill: var(--darkgrey);
         user-select: none;
-        &:hover{
+        &:hover {
           fill: var(--white);
           cursor: pointer;
         }
@@ -158,7 +145,7 @@ const StyledLoader = styled.div`
     .logo-wrapper {
       width: max-content;
       max-width: 100px;
-      
+
       margin: auto;
       transition: var(--transition);
       opacity: ${props => (props.isMounted ? 1 : 0)};
@@ -169,24 +156,22 @@ const StyledLoader = styled.div`
         margin: 0 auto;
         fill: none;
         user-select: none;
-        &:hover{
+        &:hover {
           fill: var(--verydarkgrey);
           cursor: pointer;
         }
       }
     }
   }
-  .level-bar{
+  .level-bar {
     display: flex;
     margin: auto;
 
     @media (max-width: 768px) {
       width: 300px;
     }
-  
-    
 
-    .left-time{
+    .left-time {
       width: 50px;
       display: flex;
       align-items: center;
@@ -197,10 +182,9 @@ const StyledLoader = styled.div`
       @media (max-width: 768px) {
         margin-right: 10px;
       }
-    
     }
 
-    .right-time{
+    .right-time {
       width: 50px;
       display: flex;
       align-items: center;
@@ -211,19 +195,14 @@ const StyledLoader = styled.div`
       @media (max-width: 768px) {
         margin-left: 10px;
       }
-    
     }
-
-
 
     .loading-bar-wrapper {
       width: 500px;
       max-width: 2000px;
       transition: var(--transition);
 
-    
-      
-      svg{
+      svg {
         display: flex;
         position: relative;
         width: 100%;
@@ -231,219 +210,34 @@ const StyledLoader = styled.div`
         margin: auto;
         user-select: none;
 
-
         @media (max-width: 768px) {
           width: 150%;
         }
-      
 
-        #bar-container
-        {
+        #bar-container {
           fill: var(--verydarkgrey);
         }
-        #progress{
+        #progress {
           fill: var(--white);
-          
         }
       }
     }
-
-
   }
-
-
-
 `;
 
 const Loader = ({ finishLoading }) => {
-  
   const [isMounted, setIsMounted] = useState(false);
   const [isLiked, setisLiked] = useState(false);
-  
+  var paused = true
 
-  const data = useStaticQuery(graphql`
-    {
-      featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/loader/" } }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              tech
-            }
-            html
-          }
-        }
-      }
-    }
-  `).featured.edges[0].node.frontmatter.tech;
-  const minreply = 0;
-
-  
-
-
-
-    
-  
-
-  const animate = () => {
-    const loader = anime.timeline({
-      complete: () => null,
-    });
-
-    loader
-      .add({
-        targets: '#logo #circle',
-        delay: 300,
-        duration: 500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
-      })
-      .add(
-        {
-          targets: '#logo #play',
-          delay: 0,
-          duration: 500,
-          easing: 'easeInOutQuart',
-          strokeDashoffset: [anime.setDashoffset, 0],
-          opacity: 1,
-          fill: '#FFFFFF',
-        },
-        '-=400',
-      )
-      // .add(
-      //   {
-      //     targets: '#bar #bar-container',
-      //     delay:0,
-      //     duration: 500,
-      //     easing: 'easeInOutQuart',
-      //     width: '335.32'
-      //   },
-      //   '-=600'
-      // )
-      .add({
-        targets: '#logo #leftplay',
-        delay: 100,
-        duration: 100,
-        easing: 'easeInOutQuart',
-        opacity: 1,
-      })
-      .add({
-        targets: '#logo #rightplay',
-        delay: 100,
-        duration: 100,
-        easing: 'easeInOutQuart',
-        opacity: 1,
-      });
-    // .add({
-    //   targets: '#logo #play',
-    //   delay: 200,
-    //   duration: 200,
-    //   easing: 'easeInOutQuart',
-    //   scale: 0.6,
-    // })
-    // .add(
-    //   {
-    //     targets: '#logo #rightplay',
-    //     delay: 0,
-    //     duration: 100,
-    //     easing: 'easeInOutQuart',
-    //     scale: 0.6,
-    //   },
-    //   '-=100',
-    // )
-    // .add(
-    //   {
-    //     targets: '#logo #leftplay',
-    //     delay: 0,
-    //     duration: 100,
-    //     easing: 'easeInOutQuart',
-    //     scale: 0.6,
-    //   },
-    //   '-=100',
-    // )
-    // .add(
-    //   {
-    //     targets: '#logo #play',
-    //     delay: 0,
-    //     duration: 100,
-    //     easing: 'easeInOutQuart',
-    //     opacity: 0,
-    //   },
-    //   '-=100',
-    // )
-
-    // .add({
-    //   targets: '#logo #leftplay',
-    //   points: [{ value: '   29.54 23.53 29.54 62.95  40.83 62.97  40.88 23.53 29.54 23.53 ' }],
-    //   easing: 'easeOutQuad',
-    //   delay: 0,
-    //   scale: 1,
-    //   duration: 100,
-    //   stroke: '#161616',
-    //   fill: '#161616',
-    // })
-    // .add(
-    //   {
-    //     targets: '#logo #rightplay',
-    //     points: [{ value: '50.12 23.53 61.46 23.53 61.4 62.97 50.12 62.95 50.12 23.53' }],
-    //     easing: 'easeOutQuad',
-    //     delay: 0,
-    //     scale: 1,
-    //     duration: 100,
-
-    //     stroke: '#161616',
-    //     fill: '#161616',
-    //   },
-    //   '-=100',
-    // )
-
-    // .add(
-    //   {
-    //     targets: '#logo #circle',
-
-    //     easing: 'easeOutQuad',
-    //     delay: 0,
-    //     duration: 100,
-
-    //     stroke: '#FFFFFF',
-    //     fill: '#FFFFFF',
-    //   },
-    //   '-=100',
-    // )
-
-    // .add(
-    //   {
-    //     targets: '#logo',
-    //     delay: 300,
-    //     duration: 300,
-    //     easing: 'easeInOutQuart',
-    //     opacity: 0,
-    //     scale: 0.1,
-    //   },
-    //   '-=100',
-    // )
-    // .add({
-    //   targets: '.loader',
-    //   duration: 200,
-    //   easing: 'easeInOutQuart',
-    //   opacity: 0,
-    //   zIndex: -1,
-    // });
-  };
-
+  const playref = React.useRef(null);
+  const barref = React.useRef(null);
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 10);
-    animate();
-    return () => clearTimeout(timeout);
-  }, []);
-
-  function animateplay() {
-    const play = anime.timeline({
-      complete: () => finishLoading(),
-    });
-    console.log(Math.round(play.progress))
-    play
+    playref.current = anime
+      .timeline({
+        autoplay: false,
+        complete: () => null,
+      })
       .add({
         targets: '#logo #play',
         delay: 0,
@@ -543,7 +337,15 @@ const Loader = ({ finishLoading }) => {
           fill: '#FFFFFF',
         },
         '-=100',
-      )
+      );
+  }, []);
+
+  useEffect(() => {
+    barref.current = anime
+      .timeline({
+        autoplay: false,
+        complete: () => finishLoading(),
+      })
       .add({
         targets: '#bar #progress',
         easing: 'easeOutQuad',
@@ -555,18 +357,29 @@ const Loader = ({ finishLoading }) => {
         targets: '#bar #progress',
         easing: 'linear',
         delay: 0,
-        duration: Math.floor(Math.random()*(1200 - 1800) + 1200),
+        duration: Math.floor(Math.random() * (1200 - 1800) + 1200),
         width: '335.32',
-        update: function(anim){
-          var time_seconds = Math.round(0.01*anim.progress*musictime);
+        update: function (anim) {
+          var time_seconds = Math.round(0.01 * anim.progress * musictime);
           console.log();
-          var timestring = Math.floor(time_seconds/60) + ':' + ("0" + time_seconds%60).slice(-2)
-          document.getElementById("progresstime").innerHTML=timestring
+          var timestring =
+            Math.floor(time_seconds / 60) + ':' + ('0' + (time_seconds % 60)).slice(-2);
+          document.getElementById('progresstime').innerHTML = timestring;
         },
       })
       .add(
         {
-          targets: ['#logo','#bar','#heart',"#skipright",'#skipleft','.song','.artist','.left-time','.right-time'],
+          targets: [
+            '#logo',
+            '#bar',
+            '#heart',
+            '#skipright',
+            '#skipleft',
+            '.song',
+            '.artist',
+            '.left-time',
+            '.right-time',
+          ],
           delay: 300,
           duration: 300,
           easing: 'easeInOutQuart',
@@ -575,17 +388,6 @@ const Loader = ({ finishLoading }) => {
         },
         '-=100',
       )
-      // .add(
-      //   {
-      //     targets: '#bar',
-      //     delay: 0,
-      //     duration: 300,
-      //     easing: 'easeInOutQuart',
-      //     opacity: 0,
-      //     scale: 0.1,
-      //   },
-      //   '-=300',
-      // )
       .add({
         targets: '.loader',
         duration: 200,
@@ -593,17 +395,79 @@ const Loader = ({ finishLoading }) => {
         opacity: 0,
         zIndex: -1,
       });
-  }
+  }, []);
 
-  function setlike(){
-    Liked[replyindex-1] = !Liked[replyindex-1];
-    setisLiked(Liked[replyindex-1]);
+
+  const data = useStaticQuery(graphql`
+    {
+      featured: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/loader/" } }) {
+        edges {
+          node {
+            frontmatter {
+              tech
+            }
+            html
+          }
+        }
+      }
+    }
+  `).featured.edges[0].node.frontmatter.tech;
+  const minreply = 0;
+
+  const animate = () => {
+    const loader = anime.timeline({
+      complete: () => null,
+    });
+
+    loader
+      .add({
+        targets: '#logo #circle',
+        delay: 300,
+        duration: 500,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add(
+        {
+          targets: '#logo #play',
+          delay: 0,
+          duration: 500,
+          easing: 'easeInOutQuart',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          opacity: 1,
+          fill: '#FFFFFF',
+        },
+        '-=400',
+      )
+      .add({
+        targets: '#logo #leftplay',
+        delay: 100,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        opacity: 1,
+      })
+      .add({
+        targets: '#logo #rightplay',
+        delay: 100,
+        duration: 100,
+        easing: 'easeInOutQuart',
+        opacity: 1,
+      });
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 10);
+    animate();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  function setlike() {
+    Liked[replyindex - 1] = !Liked[replyindex - 1];
+    setisLiked(Liked[replyindex - 1]);
     console.log(Liked);
-    
-    
   }
 
-  function animatelike(){
+  function animatelike() {
     const like = anime.timeline({
       complete: () => null,
     });
@@ -621,31 +485,27 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 1,
-      })
+      });
     setlike();
   }
 
-
-  function replies(i){
-    if (replyindex +i < minreply +1){
+  function replies(i) {
+    if (replyindex + i < minreply + 1) {
       replyindex = maxreplies;
-    }
-    else if (replyindex +i > maxreplies){
-      replyindex = minreply+1;
-    }
-    else {
-      replyindex +=i;
+    } else if (replyindex + i > maxreplies) {
+      replyindex = minreply + 1;
+    } else {
+      replyindex += i;
     }
 
     const prevnext = anime.timeline({
       complete: () => null,
     });
 
-    if (i==1){
-      var targ = '.right-skip'
-    }
-    else{
-      var targ = '.left-skip'
+    if (i == 1) {
+      var targ = '.right-skip';
+    } else {
+      var targ = '.left-skip';
     }
 
     prevnext
@@ -655,7 +515,7 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 0.9,
-        foll : '#1DB954',
+        foll: '#1DB954',
       })
       .add({
         targets: targ,
@@ -663,24 +523,27 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 1,
-        fill : "#7C7C7C",
+        fill: '#7C7C7C',
       })
-      .add({
-        targets: '.song',
-        delay: 0,
-        duration: 50,
-        easing: 'easeInOutQuart',
-        translateX: i*-30,
-        opacity: 0,
-      }, '-=100')
+      .add(
+        {
+          targets: '.song',
+          delay: 0,
+          duration: 50,
+          easing: 'easeInOutQuart',
+          translateX: i * -30,
+          opacity: 0,
+        },
+        '-=100',
+      )
       .add({
         targets: '.song',
         delay: 5,
         duration: 20,
-        update: function(){
-          document.getElementById("songtitle").innerHTML=data[replyindex-1]
+        update: function () {
+          document.getElementById('songtitle').innerHTML = data[replyindex - 1];
         },
-        translateX: i*60,
+        translateX: i * 60,
         opacity: 0,
       })
       .add({
@@ -690,16 +553,31 @@ const Loader = ({ finishLoading }) => {
         easing: 'easeInOutQuart',
         translateX: -0,
         opacity: 1,
-      })
+      });
 
-
-    
     console.log(Liked);
-    setisLiked(Liked[replyindex-1]);
-    
-    
+    setisLiked(Liked[replyindex - 1]);
+    playref.current.reset()
+    barref.current.reset()
+    paused = true
   }
 
+  function playanimation(){
+    if (paused==true){
+      playref.current.reset()
+      playref.current.play()
+      barref.current.play()
+      paused = false
+    }
+    else{
+      barref.current.pause()
+      playref.current.reverse()
+      playref.current.play()
+      
+      paused = true
+    }
+    
+  }
 
   return (
     <StyledLoader className="loader" isMounted={isMounted} isLiked={isLiked}>
@@ -707,7 +585,9 @@ const Loader = ({ finishLoading }) => {
       <div className="column">
         <div className="above-bar">
           <div className="names">
-            <div className="song" id='songtitle'>{data[0]}</div>
+            <div className="song" id="songtitle">
+              {data[0]}
+            </div>
             <div className="artist">Julien Guinot</div>
           </div>
           <div className="like-button " onClick={() => animatelike()}>
@@ -715,32 +595,32 @@ const Loader = ({ finishLoading }) => {
           </div>
         </div>
 
-
-        <div className = 'level-bar'>
-
-        <div className="left-time" id='progresstime'>
-          0:00
-        </div>
+        <div className="level-bar">
+          <div className="left-time" id="progresstime">
+            0:00
+          </div>
 
           <div className="loading-bar-wrapper">
             <LoadBar />
           </div>
 
-        <div className="right-time">
-          {minutes}:{seconds}
+          <div className="right-time">
+            {minutes}:{seconds}
+          </div>
         </div>
 
-        </div>
+        <div className="below_bar">
+          <div className="left-skip" onClick={() => replies(-1)}>
+            <SkipLeft />
+          </div>
 
-
-        <div className='below_bar'>
-          <div className='left-skip' onClick={() => replies(-1)}><SkipLeft /></div>
-          
-          <div className="logo-wrapper" id="Icon" onClick={() => animateplay()}>
+          <div className="logo-wrapper" id="Icon" onClick={() => playanimation()}>
             <IconLoader />
           </div>
 
-          <div className='right-skip'  onClick={() => replies(1)}><SkipRight/></div>
+          <div className="right-skip" onClick={() => replies(1)}>
+            <SkipRight />
+          </div>
         </div>
       </div>
     </StyledLoader>

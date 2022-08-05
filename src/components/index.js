@@ -1,3 +1,8 @@
+import React from 'react';
+import anime from 'animejs'
+
+
+
 export { default as Head } from './head';
 export { default as Layout } from './layout';
 export { default as Loader } from './loader';
