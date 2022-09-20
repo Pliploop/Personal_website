@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
+import {HiSun, HiMoon} from "react-icons/hi"
 
 const StyledMenu = styled.div`
   display: none;
@@ -74,7 +75,7 @@ const StyledHamburgerButton = styled.button`
       top: ${props => (props.menuOpen ? `0` : `-10px`)};
       opacity: ${props => (props.menuOpen ? 0 : 1)};
       transition: ${({ menuOpen }) =>
-    menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
+        menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
     }
     &:after {
       width: ${props => (props.menuOpen ? `100%` : `80%`)};
@@ -113,6 +114,28 @@ const StyledSidebar = styled.aside`
     color: var(--lightgrey);
     font-family: var(--font-mono);
     text-align: center;
+  }
+
+  .sunlogo {
+    margin-top: 30px;
+
+    .sunlogoinside {
+      transition: var(--transition);
+    }
+
+    .sunlogoinside:hover {
+      color: var(--lightgrey);
+      scale: 105%;
+    }
+
+    .sunlogoinside:active {
+      color: var(--green);
+      scale: 90%;
+    }
+
+    .sunlogoinside:focus {
+      color: var(--green);
+    }
   }
 
   ol {
@@ -155,7 +178,7 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ isNight, setIsNight }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -166,6 +189,14 @@ const Menu = () => {
   let menuFocusables;
   let firstFocusableEl;
   let lastFocusableEl;
+
+  function LightDarkLogo() {
+    if (isNight) {
+      return <HiMoon size={'24'} className={'sunlogoinside'} onClick={handleNight} />;
+    } else {
+      return <HiSun size={'24'} className={'sunlogoinside'} onClick={handleNight} />;
+    }
+  }
 
   const setFocusables = () => {
     menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
@@ -220,6 +251,10 @@ const Menu = () => {
     }
   };
 
+  function handleNight() {
+    setIsNight(!isNight)
+  }
+
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
     window.addEventListener('resize', onResize);
@@ -269,6 +304,9 @@ const Menu = () => {
             <a href="/resume.pdf" className="resume-link">
               Resume
             </a>
+            <div className="sunlogo">
+              <LightDarkLogo />
+            </div>
           </nav>
         </StyledSidebar>
       </div>

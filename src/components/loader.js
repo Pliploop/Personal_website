@@ -46,7 +46,7 @@ const StyledLoader = styled.div`
       flex-direction: column;
       .song {
         font-weight: bold;
-        color: white;
+        color: var(--white);
       }
       .artist {
         color: var(--darkgrey);

@@ -8,6 +8,7 @@ import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import { IconLogo } from '@components/icons';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -95,6 +96,28 @@ const StyledLinks = styled.div`
     display: none;
   }
 
+  .sunlogo {
+    margin-right: 10px;
+
+    .sunlogoinside {
+      transition: var(--transition);
+    }
+
+    .sunlogoinside:hover {
+      color: var(--lightgrey);
+      scale: 105%;
+    }
+
+    .sunlogoinside:active {
+      color: var(--green);
+      scale: 90%;
+    }
+
+    .sunlogoinside:focus {
+      color: var(--green);
+    }
+  }
+
   ol {
     ${({ theme }) => theme.mixins.flexBetween};
     padding: 0;
@@ -128,11 +151,12 @@ const StyledLinks = styled.div`
   }
 `;
 
-const Nav = ({ isHome }) => {
+const Nav = ({ isHome, setIsNight, isNight }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
+  
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -155,11 +179,21 @@ const Nav = ({ isHome }) => {
     };
   }, []);
 
-  function scroll()
-  {
+  function scroll() {
     document.querySelector('#root').scrollIntoView({
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
+  }
+
+  function LightDarkLogo () {
+    if (isNight){
+      return (
+        <HiMoon size={'24'} className={"sunlogoinside"} onClick={handleNight} />
+    )} else {
+      return (
+        <HiSun size={'24'} className={"sunlogoinside"} onClick={handleNight} />
+        )
+    }
   }
 
   const timeout = isHome ? loaderDelay : 0;
@@ -167,7 +201,7 @@ const Nav = ({ isHome }) => {
   const fadeDownClass = isHome ? 'fadedown' : '';
 
   const Logo = (
-    <div className="logo" tabIndex="-1" id='playbutton'>
+    <div className="logo" tabIndex="-1" id="playbutton">
       {isHome ? (
         <Link to="/#root" aria-label="home">
           <IconLogo />
@@ -186,13 +220,16 @@ const Nav = ({ isHome }) => {
     </a>
   );
 
+  function handleNight() {
+    setIsNight(!isNight)
+  }
+
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
         {prefersReducedMotion ? (
           <>
             {Logo}
-            <script src="https://sdk.scdn.co/spotify-player.js"></script>
             <StyledLinks>
               <ol>
                 {navLinks &&
@@ -218,6 +255,10 @@ const Nav = ({ isHome }) => {
             </TransitionGroup>
 
             <StyledLinks>
+              <div className="sunlogo">
+                <LightDarkLogo/>
+              </div>
+
               <ol>
                 <TransitionGroup component={null}>
                   {isMounted &&
@@ -246,7 +287,7 @@ const Nav = ({ isHome }) => {
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <Menu />
+                  <Menu isNight = {isNight} setIsNight = {setIsNight}/>
                 </CSSTransition>
               )}
             </TransitionGroup>

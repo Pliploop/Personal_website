@@ -1,12 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import fonts from './fonts';
-import variables from './variables';
+import { variables, nightvariables } from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 
 const GlobalStyle = createGlobalStyle`
   ${fonts};
-  ${variables};
+  ${props => props.isNight ? variables : nightvariables};
 
   html {
     box-sizing: border-box;
