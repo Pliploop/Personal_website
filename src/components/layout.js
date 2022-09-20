@@ -19,7 +19,7 @@ const StyledContent = styled.div`
 const Layout = ({ children, location }) => {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
-  const [isNight, setIsNight] = useState(false)
+  const [isNight, setIsNight] = useState(true)
 
   console.log(isNight)
 
