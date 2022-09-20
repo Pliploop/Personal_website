@@ -157,7 +157,7 @@ const About = () => {
             </p>
 
             <p>
-              Up till now, I’ve been pursuing studies in engineering, with a focus on Musical acoustics and deep learning <a href="https://www.ec-lyon.fr/">France</a>{' '} and <a href="https://www.adelaide.edu.au/">Australia</a>{' '}. My discovery of data science
+              Up till now, I’ve been pursuing studies in engineering, with a focus on Musical acoustics and deep learning in <a href="https://www.ec-lyon.fr/">France</a>{' '} and <a href="https://www.adelaide.edu.au/">Australia</a>{' '}. My discovery of data science
               and my problem-solving mindset have led me to pursue independent and 
               university courses in the domains of machine learning, deep learning, and more specifically MIR. 
             </p>

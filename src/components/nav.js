@@ -106,6 +106,7 @@ const StyledLinks = styled.div`
     .sunlogoinside:hover {
       color: var(--lightgrey);
       scale: 105%;
+      cursor : pointer;
     }
 
     .sunlogoinside:active {
