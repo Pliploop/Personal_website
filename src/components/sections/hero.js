@@ -82,7 +82,17 @@ const Hero = () => {
     </a>
   );
 
-  const items = [one, two, three, four, five];
+  const six = (
+    <a
+      className="email-link"
+      href={`https://gentle-tulumba-353e4f.netlify.app/`}
+      target="_blank"
+      rel="noreferrer">
+      Check out my portfolio!
+    </a>
+  );
+
+  const items = [one, two, three, four, five, six];
 
   return (
     <StyledHeroSection>

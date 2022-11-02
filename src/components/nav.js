@@ -221,6 +221,12 @@ const Nav = ({ isHome, setIsNight, isNight }) => {
     </a>
   );
 
+  const PortfolioLink = (
+    <a className="resume-button" href="https://gentle-tulumba-353e4f.netlify.app/" target="_blank" rel="noopener noreferrer">
+      Artistic/Academic Portfolio
+    </a>
+  );
+
   function handleNight() {
     setIsNight(!isNight)
   }
@@ -241,6 +247,7 @@ const Nav = ({ isHome, setIsNight, isNight }) => {
                   ))}
               </ol>
               <div>{ResumeLink}</div>
+              <div>{PortfolioLink}</div>
             </StyledLinks>
 
             <Menu />
@@ -280,6 +287,17 @@ const Nav = ({ isHome, setIsNight, isNight }) => {
                     <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                       {ResumeLink}
                     </div>
+                    
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                      {PortfolioLink}
+                    </div>
+                    
                   </CSSTransition>
                 )}
               </TransitionGroup>
