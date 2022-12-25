@@ -226,6 +226,7 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = ({ finishLoading }) => {
+  const green = getComputedStyle(document.documentElement).getPropertyValue('--green')
   const [isMounted, setIsMounted] = useState(false);
   const [isLiked, setisLiked] = useState(false);
   var paused = true
@@ -244,8 +245,8 @@ const Loader = ({ finishLoading }) => {
         duration: 100,
         easing: 'easeInOutQuart',
         scale: 0.6,
-        fill: '#EA5A64',
-        stroke: '#EA5A64',
+        fill: {green},
+        stroke: {green},
       })
       .add(
         {
@@ -253,7 +254,7 @@ const Loader = ({ finishLoading }) => {
           delay: 0,
           duration: 100,
           easing: 'easeInOutQuart',
-          stroke: '#EA5A64',
+          stroke: {green},
           scale: 0.8,
         },
         '-=100',

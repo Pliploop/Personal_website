@@ -14,6 +14,14 @@ module.exports = {
       name: 'Email',
       url: `mailto:jul.guinot@gmail.com`,
     },
+    {
+      name: 'Medium',
+      url: `https://www.medium.com/@juj_guinot`,
+    },
+    {
+      name: 'Twitter',
+      url: `https://twitter.com/Juj_Guinot`,
+    }
   ],
 
   navLinks: [

@@ -17,7 +17,9 @@ import {
   IconStar,
   IconTwitter,
   LoadBar,
+  IconMedium
 } from '@components/icons';
+import {SiMedium} from 'react-icons/si'
 
 const Icon = ({ name }) => {
   switch (name) {
@@ -52,7 +54,9 @@ const Icon = ({ name }) => {
     case 'Email':
       return <IconBookmark />;
     case 'Bar':
-      return <LoadBar/>
+      return <LoadBar/>;
+    case 'Medium':
+      return <SiMedium stroke='currentColor'/>;
     default:
       return <IconExternal />;
   }
