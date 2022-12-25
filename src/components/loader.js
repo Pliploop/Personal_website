@@ -226,7 +226,7 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = ({ finishLoading }) => {
-  const green = getComputedStyle(document.documentElement).getPropertyValue('--green')
+  const green = '#EA5A64',
   const [isMounted, setIsMounted] = useState(false);
   const [isLiked, setisLiked] = useState(false);
   var paused = true
